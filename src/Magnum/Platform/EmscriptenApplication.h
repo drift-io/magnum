@@ -1363,8 +1363,8 @@ enum class EmscriptenApplication::Key: Int {
     Backquote,          /**< Backquote (<tt>`</tt>) */
 
     /* no equivalent for GlfwApplication's World1 / World2 */
-    /** @todo there's IntlBackslash for World1, implement once there's
-        consensus about naming */
+    /** @todo there's IntlBackslash for World1, implement once there's any progress in
+        https://github.com/emscripten-core/emscripten/issues/7278 */
 
     CapsLock,           /**< Caps lock */
     ScrollLock,         /**< Scroll lock */
@@ -1794,7 +1794,7 @@ class EmscriptenApplication::Configuration {
          */
         typedef Containers::EnumSet<WindowFlag> WindowFlags;
 
-        constexpr /*implicit*/ Configuration() {}
+        Configuration() {}  // Removed constexpr keyword
 
         /**
          * @brief Set window title
