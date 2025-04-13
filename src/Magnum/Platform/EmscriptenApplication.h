@@ -1808,6 +1808,14 @@ class EmscriptenApplication::Configuration {
          */
         template<class T> Configuration& setTitle(const T&) { return *this; }
 
+        void setCanvasId(const Containers::String& id) {
+            _canvasTarget = id;
+        }
+
+        const Containers::String &getCanvasId() const {
+            return _canvasTarget;
+        }
+
         /** @brief Window size */
         Vector2i size() const { return _size; }
 
@@ -1887,6 +1895,7 @@ class EmscriptenApplication::Configuration {
         }
 
     private:
+        Containers::String _canvasTarget;
         Vector2i _size;
         Vector2 _dpiScaling;
         WindowFlags _windowFlags;

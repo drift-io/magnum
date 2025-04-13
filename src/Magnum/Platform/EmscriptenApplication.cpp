@@ -305,7 +305,7 @@ bool EmscriptenApplication::tryCreate(const Configuration& configuration) {
 
     std::ostream* verbose = _verboseLog ? Debug::output() : nullptr;
 
-    _canvasTarget = canvasId();
+    _canvasTarget = configuration.getCanvasId();
 
     /* Get CSS canvas size and device pixel ratio and cache it. This is used
        later to detect canvas resizes in emscripten_set_resize_callback() and
@@ -385,7 +385,7 @@ bool EmscriptenApplication::tryCreate(const Configuration& configuration, const 
 
     /* Get the canvas ID from Module.canvas, either set by EmscriptenApplication.js
        or overridden/manually set by the user. */
-    _canvasTarget = canvasId();
+    _canvasTarget = configuration.getCanvasId();
 
     /* Get CSS canvas size and device pixel ratio and cache it. This is used
        later to detect canvas resizes in emscripten_set_resize_callback() and
